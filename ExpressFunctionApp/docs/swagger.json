@@ -1,0 +1,106 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.0.1",
+    "title": "Az Function Mock Web Service 2",
+    "description": "Azure Function Mock Web Service 2"
+  },
+  "host": "azamwebsvc2.azurewebsites.net",
+  "basePath": "/api",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/docs/swagger.json": {
+      "get": {
+        "summary": "Get this Swagger 2.0 definition 2",
+        "description": "Get this Swagger 2.0 definition 2",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/path-encoding/{string-path}": {
+      "post": {
+        "summary": "POST text route path encoding 2",
+        "description": "Returns literal route path for testing encoding performed by the caller",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "string-path",
+            "x-ntx-summary": "Text Path Input",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "inputs": {
+                  "type": "object",
+                  "description": "Logged Request Inputs",
+                  "x-ntx-summary": "Logged Request Inputs"
+                },
+                "path": {
+                  "type": "string",
+                  "description": "Text Path Output",
+                  "x-ntx-summary": "Text Path Output"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/query-encoding": {
+      "post": {
+        "summary": "POST text query string encoding 2",
+        "description": "Returns literal querystring for testing encoding performed by the caller",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "string_query",
+            "description": "Text Query Input",
+            "x-ntx-summary": "Text Query Input",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "inputs": {
+                  "type": "object",
+                  "description": "Logged Request Inputs",
+                  "x-ntx-summary": "Logged Request Inputs"
+                },
+                "query": {
+                  "type": "string",
+                  "description": "Text Query Output",
+                  "x-ntx-summary": "Text Query Output"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
